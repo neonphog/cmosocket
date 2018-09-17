@@ -1,15 +1,24 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.8)
 project (cmosocket)
+
+set (lib_SRC
+  src/lib/cmo_vector.c
+  src/lib/cmosocket.c
+)
+
+add_library (cmosocket ${lib_SRC})
+include_directories ("${PROJECT_SOURCE_DIR}/include")
+
+set_target_properties (cmosocket
+  PROPERTIES COMPILE_FLAGS "-ansi -pedantic -Wall -Werror"
+)
 
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "Debug")
+  set_target_properties (cmosocket
+    PROPERTIES COMPILE_FLAGS "-ansi -pedantic -Wall -Werror -g -ggdb"
+  )
 endif()
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ansi -pedantic -Wall -Werror")
-set (CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g -ggdb")
-
-add_library (cmosocket src/lib/cmosocket.c)
-include_directories ("${PROJECT_SOURCE_DIR}/include")
-
-add_executable (cmosocket_test src/test/test.c)
-target_link_libraries (cmosocket_test cmosocket)
+enable_testing()
+add_subdirectory(test)
