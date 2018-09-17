@@ -1,5 +1,5 @@
-#ifndef _CMO_COMMON_H
-#define _CMO_COMMON_H
+#ifndef _CMO_CONTEXT_H
+#define _CMO_CONTEXT_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -8,6 +8,8 @@
 extern "C" {
 #endif
 
+/**
+ */
 typedef struct _cmo_ctx {
   void *(*alloc)(void *usr, size_t size);
   void *alloc_usr;
@@ -22,4 +24,4 @@ typedef struct _cmo_ctx {
 } /* extern "C" */
 #endif
 
-#endif /* _CMO_COMMON_H */
+#endif /* _CMO_CONTEXT_H */

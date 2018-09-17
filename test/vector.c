@@ -1,7 +1,7 @@
 #include <criterion/criterion.h>
 
 #include "cmosocket.h"
-#include "cmo_vector.h"
+#include "vector.h"
 
 Test(cmo_vector_suite, it_can_alloc_and_free) {
   cmo_ctx ctx = cmo_ctx_alloc();

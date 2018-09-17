@@ -2,8 +2,9 @@ cmake_minimum_required (VERSION 2.8)
 project (cmosocket)
 
 set (lib_SRC
-  src/lib/cmo_vector.c
-  src/lib/cmosocket.c
+  src/context.c
+  src/vector.c
+  src/sock.c
 )
 
 add_library (cmosocket ${lib_SRC})

@@ -3,10 +3,10 @@ project (cmosocket_tests)
 
 add_subdirectory (Criterion)
 include_directories (Criterion/include)
-include_directories (../src/lib)
+include_directories (../src)
 
 set (TESTS
-  cmo_vector.c
+  vector.c
 )
 
 foreach (testfile ${TESTS})
